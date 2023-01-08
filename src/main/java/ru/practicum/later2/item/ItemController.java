@@ -17,12 +17,18 @@ public class ItemController {
     }
 
     @PostMapping
-    public Item add(@RequestHeader ("X-Later-User-Id") Long userId, @RequestBody Item item) {
+    public Item add(@RequestHeader ("X-Later-User-Id") Long userId,
+                    @RequestBody Item item) {
         return itemService.addNewItem(userId, item);
     }
 
     @DeleteMapping("/{itemId}")
-    public void deletItem(@RequestHeader ("X-Later-User-Id") long userId, @PathVariable long itemId) {
+    public void deletItem(@RequestHeader ("X-Later-User-Id") long userId,
+                          @PathVariable long itemId) {
         itemService.deleteItem(userId, itemId);
     }
+
+    @GetMapping
+    public List<Item> search(@RequestHeader ("X-Later-User-Id") long userId,
+                             )
 }

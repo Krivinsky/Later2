@@ -1,8 +1,13 @@
 package ru.practicum.later2.user;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.query.Param;
+
 import java.util.List;
 
-interface UserRepository {
-    List<User> findAll();
-    User save (User user);
+public interface UserRepository extends JpaRepository<User, Long> {
+
+    List<User> findByEmailContainingIgnoreCase(@Param("email") String emailSearch);
+
+    List<UserShort> findAllByEmailContainingIgnoreCase(String emailSearch);
 }

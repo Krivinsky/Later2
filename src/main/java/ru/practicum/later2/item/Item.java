@@ -24,6 +24,8 @@ public class Item {
     @Column(name = "URL")
     private  String url;
 
+    private boolean unread;
+
     @ElementCollection
     @CollectionTable(name = "tags", joinColumns = @JoinColumn(name = "item_id"))
     @Column(name = "name")
